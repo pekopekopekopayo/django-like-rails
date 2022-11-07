@@ -1,10 +1,7 @@
 import bcrypt
 
 from django.db import models
-from django.forms import ValidationError
 from lib.common.model_frame import ModelFrame
-
-from lib.errors.bad_request import BadRequest
 
 # Create your models here.
 

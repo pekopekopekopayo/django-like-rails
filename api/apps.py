@@ -5,6 +5,6 @@ class ApiConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'api'
 
-# INSTALLED_APPS = [
-#     'models.user',
-# ]
+    INSTALLED_APPS = [
+        'api.models.user'
+    ]
