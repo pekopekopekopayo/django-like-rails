@@ -16,9 +16,11 @@ Including another URLconf
 
 from django.urls import path
 from api.views.user_view import UserView
+from api.views.token_view import TokenView
 
 api_path = 'api/'
 
 urlpatterns = [
-    path(api_path + 'user', UserView.as_view())
+    path(api_path + 'user', UserView.as_view()),
+    path(api_path + 'login', TokenView.login)
 ]
