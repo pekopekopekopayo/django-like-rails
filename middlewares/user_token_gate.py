@@ -10,11 +10,13 @@ class UserTokenGate:
         self.get_response = get_response
         self.skip_list = [
                             '/api/login',
-                            '/api/signup',
+                            '/api/users',
                          ]
 
     def __call__(self, request):
-        # 뷰가 호출되기 전에 실행될 코드들
+        if not request.META.get('HTTP_AUTHORIZATION'):
+            return self.get_response(request)
+
         token = request.META.get('HTTP_AUTHORIZATION').split()[-1]
 
         if request.META['PATH_INFO'] not in self.skip_list:
