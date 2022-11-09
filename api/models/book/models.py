@@ -5,7 +5,7 @@ from lib.common.model_frame import ModelFrame
 # Create your models here.
 
 class Book(ModelFrame):
-    user_id = models.ForeignKey(User, related_name='books')
+    user_id = models.ForeignKey(User, related_name='books', on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     price = models.IntegerField()
     quantity = models.IntegerField()
