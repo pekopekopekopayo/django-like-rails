@@ -10,6 +10,7 @@ class TokenView(APIView):
     @api_view(['POST'])
     def login(req):
         user = User.objects.filter(email=req.data.get('email')).first()
+
         if not user.valid_password(req.data.get('password')):
             raise NotFound
         return Response({"token": set_token(user.email)}, status=200)
