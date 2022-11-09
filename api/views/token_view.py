@@ -13,4 +13,3 @@ class TokenView(APIView):
         if not user.valid_password(req.data.get('password')):
             raise NotFound
         return Response({"token": set_token(user.email)}, status=200)
-
