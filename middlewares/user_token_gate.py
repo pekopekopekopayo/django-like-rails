@@ -18,11 +18,10 @@ class UserTokenGate:
             return self.get_response(request)
 
         token = request.META.get('HTTP_AUTHORIZATION').split()[-1]
-
         if request.META['PATH_INFO'] not in self.skip_list:
             try:
                 request.current_user = current_user(token)
             except:
                 return HttpResponse("유효하지 않은 토큰입니다.", status=401)
-
-        return self.get_response(request)
+        response =  self.get_response(request)
+        return response
