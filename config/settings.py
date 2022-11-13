@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django_extensions',
     'api',
     'api.models.user',
-    'api.models.book'
+    'api.models.book',
+    'api.models.tag',
 ]
 
 MIDDLEWARE = [

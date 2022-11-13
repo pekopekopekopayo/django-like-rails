@@ -4,7 +4,6 @@ from rest_framework import serializers
 from api.models.book.models import Book
 from api.models.user.models import User
 from api.serializer.user_serializer import UserSerializer
-from lib.common.compact import compact
 from rest_framework.exceptions import ValidationError
 
 class BookSerializer(serializers.ModelSerializer):

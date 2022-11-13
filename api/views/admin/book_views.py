@@ -1,4 +1,3 @@
-import pdb
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView, Response
 from api.models.book.models import Book
@@ -7,7 +6,7 @@ from api.policy.admin.book_policy import BookPolicy
 from api.serializer.admin.book_serializer import BookSerializer
 from lib.policy.policy import authentication
 
-class AdminBookView(APIView):
+class BookView(APIView):
 
     def get(self, req):
         authentication(BookPolicy(req.current_user).get())
