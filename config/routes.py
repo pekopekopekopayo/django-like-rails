@@ -16,6 +16,8 @@ Including another URLconf
 
 from django.urls import path
 from api.views.admin.book_views import BookView as AadminBookView
+from api.views.admin.tag_views import TagView as AdminTagView
+
 from api.views.user_view import UserView
 from api.views.token_view import TokenView
 
@@ -27,4 +29,7 @@ urlpatterns = [
 
     path(api_path + admin_path + 'books', AadminBookView.as_view()),
     path(api_path + admin_path + 'books/<int:id>', AadminBookView.as_view()),
+
+    path(api_path + admin_path + 'tags', AdminTagView.as_view()),
+    path(api_path + admin_path + 'tags/<str:name>', AdminTagView.as_view()),
 ]

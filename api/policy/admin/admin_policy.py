@@ -1,9 +1,13 @@
 from api.policy.policy import Policy
+from lib.policy.admin_base import is_admin
 
 class AdminPolicy(Policy):
 
-    def admin_policy(func):
-        def policy(user, record):
-            if user.role != 2: return False
-            func()
-        return policy
+    def get(self):
+        return is_admin(self.user)
+
+    def post(self): return self.get()
+
+    def put(self): return self.get()
+
+    def delete(self): return self.put()
